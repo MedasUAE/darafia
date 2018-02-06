@@ -1,0 +1,12 @@
+<ion-card *ngFor="let item of items"> <!-- *ngFor="let item of items" -->
+
+  <ion-item>
+    <h2 class="heading">{{item.heading}}</h2>
+    <p>{{item.description}}</p>
+  </ion-item>
+  <img [src]="item.img" [hidden]="!item.img">
+  <ion-card-content [hidden]="!item.details">
+    <p [innerHTML]="item.details"></p>
+    <!-- <span class="large" ng-bind-html="item.details"></span> -->
+  </ion-card-content>
+</ion-card>

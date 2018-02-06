@@ -1,0 +1,6 @@
+<ion-list style="box-shadow: none;">
+    <ion-item *ngFor="let item of list" style="border-bottom: none;" (click)="onClick(item)">
+        <h2 style="color:Green;font-weight: bold;"translate [translateParams]="{value:item.heading}">INNER_CONTENT</h2>
+        <p style="color:grey;" translate [translateParams]="{value:item.description}" [hidden]="!item.description">INNER_CONTENT</p>
+    </ion-item>
+</ion-list>

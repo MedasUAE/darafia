@@ -1,0 +1,50 @@
+<ion-header color="secondary">
+  <ion-navbar color="secondary">
+    <ion-title>
+      {{'APPOINTMENTS' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card >
+    <ion-item>
+      <ion-label>{{'DEPARTMENT' | translate}}</ion-label>
+      <ion-select [(ngModel)]="department" okText="{{'OK' | translate }}" cancelText="{{'CANCEL' | translate }}">
+        <ion-option value="general">GENERAL</ion-option>
+        <ion-option value="neurology">NEUROLOGY</ion-option>
+        <ion-option value="dentistry">DENTISTRY</ion-option>
+        <ion-option value="gynaecology">GYNAECOLOGY</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item (click)="doctorClick()">
+      <ion-label style="color:#999;">{{'DOCTOR' | translate}}</ion-label>
+      <!-- <p item-end style="color:black;" [hidden]="doctor">SELECT A DOCTOR</p> -->
+      <p item-end style="color:black;">{{doctor | uppercase}}</p>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>{{'NAME' | translate}}</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="name"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+      <ion-item>
+        <ion-label>{{'MOBILE' | translate}}</ion-label>
+        <ion-input type="tel" value="" [(ngModel)]="mobile"></ion-input>
+      </ion-item>
+    </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-label>{{'WHEN' | translate}}</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" max="{{endDate}}" min="{{startDate}}" [(ngModel)]="when"></ion-datetime>
+    </ion-item>
+  </ion-card>
+  <br>
+  
+  <ion-card (click)="requestClick()">
+      <button ion-button color="secondary" clear block>{{'REQUEST_FOR_APPOINTMENT' | translate}}</button>
+  </ion-card>
+</ion-content>

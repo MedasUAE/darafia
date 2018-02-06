@@ -1,0 +1,27 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>
+      Doctors
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>SELECT DEPARTMENT</ion-label>
+      <ion-select [(ngModel)]="department">
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <list-avatar [list]="doctors"></list-avatar>
+  </ion-card>
+  <ion-card>
+    <list-avatar [list]="doctors"></list-avatar>
+  </ion-card>
+</ion-content> -->
+
+<ion-card>
+  <list-avatar [list]="doctors" (itemClick)="rowClick($event)"></list-avatar>
+</ion-card>

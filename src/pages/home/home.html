@@ -1,14 +1,54 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content>
+    <ion-buttons end>
+      <button *ngFor="let lang of languages" ion-button round small [color]="getColor(lang.code)" (click)="languageChange(lang.code);">{{lang.name}}</button>
+    </ion-buttons>
+    <img *ngIf="systemLanguage == 'en'" src="http://darafia.com/MedServices/wp-content/uploads/darafia-logo211-copy.png" padding-horizontal/>
+    <img *ngIf="systemLanguage == 'ar'" src="http://darafia.com/MedServices/wp-content/uploads/darafia-logo-A21.png" padding-horizontal/>
+    
+  <ion-card class="bg-secondary">
+    <ion-row class="row-bottom">
+      <ion-col text-center class="bg-secondary" (click)="appointmentClick()">
+        <ion-icon name="calendar" class="icon-padding-top"></ion-icon>
+        <p class="p">{{'BOOK_APPOINTMENT' | translate}}</p>
+      </ion-col> 
+    </ion-row>
+    <ion-row class="row-bottom">
+      <ion-col text-center class="bg-secondary" (click)="doctorClick()">
+        <ion-icon name="people" class="icon-padding-top"></ion-icon>
+        <p class="p">{{'DOCTORS' | translate}}</p>
+      </ion-col>
+      <ion-col text-center class="col-left-border bg-secondary" (click)="insuranceClick()">
+        <ion-icon name="list-box" class="icon-padding-top"></ion-icon>          
+        <p class="p">{{ 'INSURANCE' | translate }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-bottom">
+      <ion-col text-center class="bg-secondary" (click)="facilityClick()">
+        <ion-icon name="medkit" class="icon-padding-top"></ion-icon>
+        <p class="p">{{ 'FACILITIES' | translate }}</p>
+      </ion-col>
+      <ion-col text-center class="col-left-border bg-secondary" (click)="pharmacyClick()">
+        <ion-icon name="pulse" class="icon-padding-top"></ion-icon>          
+        <p class="p">{{ 'PHARMACY' | translate }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center class="bg-secondary" (click)="newsClick()">
+        <ion-icon name="megaphone" class="icon-padding-top"></ion-icon>
+        <p class="p">{{'NEWS_EVENTS' | translate }}</p>
+      </ion-col>
+      <ion-col text-center class="col-left-border bg-secondary" (click)="aboutUsClick()">
+        <ion-icon name="medical" class="icon-padding-top"></ion-icon>          
+        <p class="p">{{ 'ABOUT_US' | translate }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-fab bottom right>
+      <a href="tel:+9661380501019" class="button button-positive">
+<button ion-fab mini color="light"><ion-icon name="call" color="secondary"></ion-icon></button></a>
+  </ion-fab>
 </ion-content>
+<ion-footer text-center style="padding-top:5px;">
+  <sup>POWERED BY MEDAS UAE</sup>
+</ion-footer>

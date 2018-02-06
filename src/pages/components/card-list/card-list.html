@@ -1,0 +1,4 @@
+<ion-card>
+  <list-avatar [list]="items" (itemClick)="rowClick($event)" [hidden]="!isAvatar"></list-avatar>
+  <list [list]="items" (itemClick)="rowClick($event)" [hidden]="isAvatar"></list>
+</ion-card>

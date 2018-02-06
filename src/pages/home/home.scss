@@ -1,3 +1,30 @@
 page-home {
+    .icon-padding-top{
+        padding-top:0.8ex;
+        font-size:40px;
+    }
 
+    .p{
+        font-size:15px;
+        padding-bottom:2.5ex;
+        color: white;
+    }
+
+    .col-left-border{
+        border-left:white 0.5px solid;
+        
+    }
+
+    .bg-secondary{
+        background-color: color($colors, "secondary");
+        color: white
+    }
+
+    .row-bottom{
+        border-bottom:white 0.9px solid;
+    }
+
+    ion-footer{
+        color: color($colors, "secondary")
+    }
 }
