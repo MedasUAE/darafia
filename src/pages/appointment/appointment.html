@@ -10,10 +10,11 @@
     <ion-item>
       <ion-label>{{'DEPARTMENT' | translate}}</ion-label>
       <ion-select [(ngModel)]="department" okText="{{'OK' | translate }}" cancelText="{{'CANCEL' | translate }}">
-        <ion-option value="general">GENERAL</ion-option>
+          <ion-option *ngFor="let dept of departments" [value]="dept.dept_id">{{dept.heading}}</ion-option>
+        <!-- <ion-option value="general">GENERAL</ion-option>
         <ion-option value="neurology">NEUROLOGY</ion-option>
         <ion-option value="dentistry">DENTISTRY</ion-option>
-        <ion-option value="gynaecology">GYNAECOLOGY</ion-option>
+        <ion-option value="gynaecology">GYNAECOLOGY</ion-option> -->
       </ion-select>
     </ion-item>
   </ion-card>
@@ -27,15 +28,15 @@
   <ion-card>
     <ion-item>
       <ion-label>{{'NAME' | translate}}</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="name"></ion-input>
+      <ion-input type="text" value="" [(ngModel)]="name" ></ion-input>
     </ion-item>
   </ion-card>
   <ion-card>
-      <ion-item>
-        <ion-label>{{'MOBILE' | translate}}</ion-label>
-        <ion-input type="tel" value="" [(ngModel)]="mobile"></ion-input>
-      </ion-item>
-    </ion-card>
+    <ion-item>
+      <ion-label>{{'MOBILE' | translate}}</ion-label>
+      <ion-input type="tel" value="" [(ngModel)]="mobile" maxlength="10"></ion-input>
+    </ion-item>
+  </ion-card>
   <ion-card>
     <ion-item>
       <ion-label>{{'WHEN' | translate}}</ion-label>

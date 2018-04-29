@@ -19,7 +19,6 @@ export class ListAvatarPage {
     }
     
     onClick(item) {
-        // console.log("list", item);
         this.itemClick.emit(item);
     }
 }

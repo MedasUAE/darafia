@@ -142,23 +142,23 @@ export class MastersProvider {
     return this.http.get("v1/getdoctors?client=" + appId);
   }
   getPharmacyList(){
-    // return this.transformPharmacyList();
     return this.http.get("v1/getpharmacies?client=" + appId);
   }
 
   getEventsList(){
     return this.http.get("v1/getnews?client=" + appId);
-    // return this.transformEventsList();
   }
 
   getAboutUs(){
     return this.http.get("v1/getaboutus?client=" + appId);    
-    // return this.transformArrayList(this.aboutus)
   }
 
   getFacilities(){
     return this.http.get("v1/getfacilities?client=" + appId);        
-    // return this.transformArrayList(this.facilities)
+  }
+
+  getDepartments(){
+    return this.http.get("v1/getdepartments?client=" + appId);
   }
 
   // private transformPharmacyList(){
@@ -182,14 +182,38 @@ export class MastersProvider {
     headingName = "name_" + sysOptions.systemLanguage,
     descriptionName = "description_" + sysOptions.systemLanguage,
     detailName = "description2_" + sysOptions.systemLanguage;
+    
+    function columnTransform(object){
+      let returnObj: any;
+      if(!returnObj) returnObj = {};
+      
+      for(let element in object){
+        switch (element) {
+          case headingName:
+            returnObj.heading = object[headingName];
+            break;
+          case descriptionName:
+            returnObj.description = object[descriptionName];
+            break;
+          case detailName:
+            returnObj.details = object[detailName];
+            break;
+          default:
+            returnObj[element] = object[element];
+            break;
+        }
+      }
+      return returnObj;
+    }
 
-    array.forEach((doc)=>{
-      result.push({
-        heading: doc[headingName],
-        description: doc[descriptionName],
-        img: doc.img,
-        details: doc[detailName]
-      });
+    array.forEach((element)=>{
+      result.push(columnTransform(element));
+      // result.push({
+      //   heading: doc[headingName],
+      //   description: doc[descriptionName],
+      //   img: doc.img,
+      //   details: doc[detailName]
+      // });
     });
     return result;
   }

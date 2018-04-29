@@ -12,5 +12,5 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <card-list [items]="list" [isAvatar]="isAvatar" (selectItem)="rowClick($event)"></card-list>
+  <card-list [items]="list" [isAvatar]="isAvatar" (onClick)="rowClick($event)"></card-list>
 </ion-content>

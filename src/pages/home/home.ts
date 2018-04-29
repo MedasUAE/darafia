@@ -42,7 +42,15 @@ export class HomePage {
   }
 
   appointmentClick(){
-    this.navCtrl.push(AppointmentPage);
+    this.masterService.getDepartments()
+      .then((res:any)=>{
+        this.list = this.masterService.transformArrayList(res);
+        this.navCtrl.push(AppointmentPage,this.list);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+
   }
 
   private getLanguageData(){
@@ -85,17 +93,17 @@ export class HomePage {
   }
 
   insuranceClick(){
-    this.insranceService.getInsuranceList()
-      .then((res:any)=>{
-        this.list = this.insranceService.transformList(res);
-        let heading = (sysOptions.systemLanguage == 'ar') ? this.headers.DOCTORS : "DOCTORS"
+    // this.insranceService.getInsuranceList()
+    //   .then((res:any)=>{
+    //     this.list = this.insranceService.transformList(res);
+    //     let heading = (sysOptions.systemLanguage == 'ar') ? this.headers.DOCTORS : "DOCTORS"
         
-        let modal = this.modalCtrl.create(ListModalPage,{list:this.list, heading:heading, isAvatar:true});
-        modal.present()
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+    //     let modal = this.modalCtrl.create(ListModalPage,{list:this.list, heading:heading, isAvatar:true});
+    //     modal.present()
+    //   })
+    //   .catch(err=>{
+    //     console.log(err);
+    //   })
   }
 
   facilityClick(){
@@ -116,17 +124,17 @@ export class HomePage {
   }
 
   pharmacyClick(){
-    this.masterService.getPharmacyList()
-      .then((res:any)=>{
-        this.list = this.masterService.transformArrayList(res);
-        let heading = (sysOptions.systemLanguage == 'ar') ? this.headers.PHARMACY : "PHARMACY"
+    // this.masterService.getPharmacyList()
+    //   .then((res:any)=>{
+    //     this.list = this.masterService.transformArrayList(res);
+    //     let heading = (sysOptions.systemLanguage == 'ar') ? this.headers.PHARMACY : "PHARMACY"
         
-        let modal = this.modalCtrl.create(CardSocialModalPage,{list:this.list, heading:heading, isAvatar:true});
-        modal.present()
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+    //     let modal = this.modalCtrl.create(CardSocialModalPage,{list:this.list, heading:heading, isAvatar:true});
+    //     modal.present()
+    //   })
+    //   .catch(err=>{
+    //     console.log(err);
+    //   })
   }
 
   newsClick(){

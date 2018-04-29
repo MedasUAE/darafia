@@ -9,7 +9,7 @@ import { IonicPage, ViewController, NavParams } from 'ionic-angular';
 export class ListModalPage {
   @Input() heading:string;
   @Input() isAvatar:boolean = false;
-  @Output() onClick = new EventEmitter<any>();
+  @Output() itemClick = new EventEmitter<any>();
   list;
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {

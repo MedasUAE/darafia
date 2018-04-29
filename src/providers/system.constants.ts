@@ -14,4 +14,4 @@ export const sysOptions = {
 	systemLanguage: defaultLanguage
 };
 
-export const appId = "darafia";
+export const appId = "dramal";

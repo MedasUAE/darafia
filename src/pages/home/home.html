@@ -1,9 +1,9 @@
 <ion-content>
     <ion-buttons end>
-      <button *ngFor="let lang of languages" ion-button round small [color]="getColor(lang.code)" (click)="languageChange(lang.code);">{{lang.name}}</button>
+      <!-- <button *ngFor="let lang of languages" ion-button round small [color]="getColor(lang.code)" >{{lang.name}}</button> -->
     </ion-buttons>
-    <img *ngIf="systemLanguage == 'en'" src="http://darafia.com/MedServices/wp-content/uploads/darafia-logo211-copy.png" padding-horizontal/>
-    <img *ngIf="systemLanguage == 'ar'" src="http://darafia.com/MedServices/wp-content/uploads/darafia-logo-A21.png" padding-horizontal/>
+    <img *ngIf="systemLanguage == 'en'" src="./assets/imgs/dramal-logo.jpg" padding-horizontal/>
+    <!-- <img *ngIf="systemLanguage == 'ar'" src="http://darafia.com/MedServices/wp-content/uploads/darafia-logo-A21.png" padding-horizontal/> -->
     
   <ion-card class="bg-secondary">
     <ion-row class="row-bottom">
@@ -29,7 +29,7 @@
       </ion-col>
       <ion-col text-center class="col-left-border bg-secondary" (click)="pharmacyClick()">
         <ion-icon name="pulse" class="icon-padding-top"></ion-icon>          
-        <p class="p">{{ 'PHARMACY' | translate }}</p>
+        <p class="p">{{ 'SERVICES' | translate }}</p>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -45,7 +45,7 @@
   </ion-card>
 
   <ion-fab bottom right>
-      <a href="tel:+9661380501019" class="button button-positive">
+      <a href="tel:+97142401101" class="button button-positive">
 <button ion-fab mini color="light"><ion-icon name="call" color="secondary"></ion-icon></button></a>
   </ion-fab>
 </ion-content>
